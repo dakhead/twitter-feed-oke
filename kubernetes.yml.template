@@ -28,15 +28,15 @@ spec:
           - name: podinfo
             mountPath: /tmp
             readOnly: false
-    volumes:
-      - name: podinfo
-        downwardAPI:
-          items:
-          - path: "labels"
-            fieldRef:
-              fieldPath: metadata.labels
-      imagePullSecrets:
-        - name: $OKE_IMAGESECRET
+      volumes:
+        - name: podinfo
+          downwardAPI:
+            items:
+            - path: "labels"
+              fieldRef:
+                fieldPath: metadata.labels
+        imagePullSecrets:
+          - name: $OKE_IMAGESECRET
 ---
 apiVersion: v1
 kind: Service
